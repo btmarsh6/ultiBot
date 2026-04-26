@@ -5,9 +5,8 @@ streamlit
 langchain-community
 langchain-pinecone
 langchain-huggingface
-pinecone
 sentence-transformers
-transformers
+llama-cpp-python==0.2.90
 huggingface-hub
 pypdf
 pyreadline3
