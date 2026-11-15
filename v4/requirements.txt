@@ -1,0 +1,10 @@
+# App dependencies (Streamlit Cloud)
+anthropic>=0.40.0
+pinecone>=5.0.0
+sentence-transformers>=3.0.0
+streamlit>=1.40.0
+
+# Ingestor dependencies (run locally only, harmless on Cloud)
+pypdf>=4.0.0
+langchain-text-splitters>=0.3.0
+python-dotenv>=1.0.0
