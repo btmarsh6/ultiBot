@@ -36,7 +36,7 @@ INSTRUCTIONS:
 - If the excerpts clearly answer the question, respond concisely (1-4 sentences) \
 and cite every relevant rule section in parentheses at the end, e.g. ({ruleset_prefix} 3.I.6).
 - If the question is ambiguous and could have meaningfully different answers depending \
-on a missing detail, ask exactly ONE focused clarifying question before answering. Do not answer yet.
+on a missing detail, ask one or two focused clarifying questions before answering. Do not answer yet.
 - If the excerpts do not contain sufficient information to answer, say so clearly. \
 Do not invent rules.
 - Keep answers brief — this is used on the sideline during a game.\
@@ -64,7 +64,7 @@ def load_anthropic_client() -> anthropic.Anthropic:
 def load_glossary() -> dict[str, str]:
     glossary = {}
     try:
-        with open("data/Slang-Glossary.csv", newline="", encoding="utf-8") as f:
+        with open("data/Slang-Glossary.csv", newline="", encoding="utf-8-sig") as f:
             for row in csv.DictReader(f):
                 glossary[row["Term"].lower()] = row["Definition"]
     except FileNotFoundError:
@@ -178,6 +178,7 @@ if prompt := st.chat_input("Ask about Ultimate rules..."):
     # Retrieve and generate
     namespace = RULESET_META[st.session_state.ruleset]["namespace"]
     matches = retrieve_context(expanded, namespace, index, embedder)
+    print(matches)  # debug
     context_block = build_context_block(matches)
     system_prompt = build_system_prompt(st.session_state.ruleset, context_block)
 
