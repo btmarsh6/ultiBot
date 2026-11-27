@@ -354,8 +354,8 @@ def main():
     for ns, cfg in RULESETS.items():
         print(f"\nChunking {cfg['label']} from {cfg['pdf'].name}...")
         records = build_records(ns, cfg)
-        preview = write_preview(ns, records)
-        print(f"  {len(records)} chunks -> preview written to {preview.name}")
+        # preview = write_preview(ns, records)      # preview files for inspection/debugging
+        # print(f"  {len(records)} chunks -> preview written to {preview.name}")
         all_records[ns] = records
 
     if args.dry_run:

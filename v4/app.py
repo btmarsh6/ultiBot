@@ -178,7 +178,7 @@ if prompt := st.chat_input("Ask about Ultimate rules..."):
     # Retrieve and generate
     namespace = RULESET_META[st.session_state.ruleset]["namespace"]
     matches = retrieve_context(expanded, namespace, index, embedder)
-    print(matches)  # debug
+    # print(matches)  # debug
     context_block = build_context_block(matches)
     system_prompt = build_system_prompt(st.session_state.ruleset, context_block)
 
